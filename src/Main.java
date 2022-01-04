@@ -1,8 +1,11 @@
 import java.io.*;
+import java.lang.*;
+import java.util.Date;
 
 public class Main {
     static StringBuilder logString = new StringBuilder();
-    // static String path = null;
+    static Date date = new Date();
+    static String dateString = date.toString();
 
     public static void main(String[] args) {
         File tempDir = new File("D:/Games/temp");
@@ -35,16 +38,16 @@ public class Main {
 
     private static StringBuilder makeDir(File myDir, StringBuilder log) {
         if (myDir.mkdir())
-            System.out.println("Каталог" + myDir.getName() + "создан");
-        logString.append("Каталог" + myDir.getName() + "создан\n");
+            System.out.println("Каталог " + myDir.getName() + " создан");
+        logString.append(dateString + " Каталог " + myDir.getName() + " создан\n");
         return logString;
     }
 
     private static StringBuilder makeFile(File myFile, StringBuilder log) {
         try {
             if (myFile.createNewFile())
-                System.out.println("Файл" + myFile.getName() + "создан");
-            logString.append("Файл" + myFile.getName() + "создан\n");
+                System.out.println("Файл " + myFile.getName() + " создан");
+            logString.append(dateString + " Файл " + myFile.getName() + " создан\n");
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
